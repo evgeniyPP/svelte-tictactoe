@@ -559,7 +559,7 @@ var app = (function () {
     		c() {
     			button = element("button");
     			button.textContent = "Новая игра";
-    			attr(button, "class", "svelte-ntirts");
+    			attr(button, "class", "svelte-tunv4t");
     		},
     		m(target, anchor, remount) {
     			insert(target, button, anchor);
@@ -583,7 +583,7 @@ var app = (function () {
     		c() {
     			p = element("p");
     			t = text(/*errorMessage*/ ctx[4]);
-    			attr(p, "class", "errorMessage svelte-ntirts");
+    			attr(p, "class", "errorMessage svelte-tunv4t");
     		},
     		m(target, anchor) {
     			insert(target, p, anchor);
@@ -750,10 +750,10 @@ var app = (function () {
     			if (if_block1) if_block1.c();
     			t15 = space();
     			if (if_block2) if_block2.c();
-    			attr(div0, "class", "row svelte-ntirts");
-    			attr(div1, "class", "row svelte-ntirts");
-    			attr(div2, "class", "row svelte-ntirts");
-    			attr(main, "class", "svelte-ntirts");
+    			attr(div0, "class", "row svelte-tunv4t");
+    			attr(div1, "class", "row svelte-tunv4t");
+    			attr(div2, "class", "row svelte-tunv4t");
+    			attr(main, "class", "svelte-tunv4t");
     		},
     		m(target, anchor) {
     			insert(target, main, anchor);

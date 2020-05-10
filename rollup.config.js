@@ -4,6 +4,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import replace from '@rollup/plugin-replace';
+import ghPages from 'gh-pages';
 
 const production = !process.env.ROLLUP_WATCH;
 const apiUrl = production
@@ -57,7 +58,9 @@ export default {
 
         // If we're building for production (npm run build
         // instead of npm run dev), minify
-        production && terser(),
+        production &&
+            terser() &&
+            ghPages.publish('public', (e) => console.error(e, 'published')),
     ],
     watch: {
         clearScreen: false,

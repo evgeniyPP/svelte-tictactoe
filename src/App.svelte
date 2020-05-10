@@ -71,7 +71,6 @@
     main {
         width: 475px;
         margin: 0 auto;
-        height: 1000px;
     }
 
     .row {

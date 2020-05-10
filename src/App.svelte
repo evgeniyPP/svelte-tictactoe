@@ -1,7 +1,7 @@
 <script>
     import Space from './Space.svelte';
     import gameStore from './game.store.js';
-    import { nextMove } from './requests.js';
+    import { nextMove, reset } from './requests.js';
 
     let board = ['', '', '', '', '', '', '', '', ''];
     let nextPlayer = '';
@@ -21,11 +21,15 @@
     });
 
     async function takeSpace(space) {
-        if (winner || !gameStore.isConnected()) {
+        if (winner || !gameStore.isConnected) {
             return;
         }
 
         errorMessage = await nextMove(space);
+    }
+
+    async function newGame() {
+        errorMessage = await reset();
     }
 </script>
 
@@ -41,22 +45,22 @@
     {/if}
 
     <div class="row">
-        <Space {winner} space={board[0]} on:click={takeSpace(0)} />
-        <Space {winner} space={board[1]} on:click={takeSpace(1)} />
-        <Space {winner} space={board[2]} on:click={takeSpace(2)} />
+        <Space {winner} space={board[0]} on:click={() => takeSpace(0)} />
+        <Space {winner} space={board[1]} on:click={() => takeSpace(1)} />
+        <Space {winner} space={board[2]} on:click={() => takeSpace(2)} />
     </div>
     <div class="row">
-        <Space {winner} space={board[3]} on:click={takeSpace(3)} />
-        <Space {winner} space={board[4]} on:click={takeSpace(4)} />
-        <Space {winner} space={board[5]} on:click={takeSpace(5)} />
+        <Space {winner} space={board[3]} on:click={() => takeSpace(3)} />
+        <Space {winner} space={board[4]} on:click={() => takeSpace(4)} />
+        <Space {winner} space={board[5]} on:click={() => takeSpace(5)} />
     </div>
     <div class="row">
-        <Space {winner} space={board[6]} on:click={takeSpace(6)} />
-        <Space {winner} space={board[7]} on:click={takeSpace(7)} />
-        <Space {winner} space={board[8]} on:click={takeSpace(8)} />
+        <Space {winner} space={board[6]} on:click={() => takeSpace(6)} />
+        <Space {winner} space={board[7]} on:click={() => takeSpace(7)} />
+        <Space {winner} space={board[8]} on:click={() => takeSpace(8)} />
     </div>
     {#if winner}
-        <button>Новая игра</button>
+        <button on:click={newGame}>Новая игра</button>
     {/if}
     {#if errorMessage}
         <p class="errorMessage">{errorMessage}</p>

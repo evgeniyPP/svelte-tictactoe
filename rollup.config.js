@@ -8,11 +8,11 @@ import ghPages from 'gh-pages';
 
 const production = !process.env.ROLLUP_WATCH;
 const apiUrl = production
-    ? 'https://epp-tictactoe.herokuapp.com'
+    ? 'https://tictactoe.noahglaser.net'
     : 'http://localhost:4001';
 
 const wsUrl = production
-    ? 'wss://epp-tictactoe.herokuapp.com/ws'
+    ? 'wss://tictactoe.noahglaser.net/ws'
     : 'ws://localhost:2222';
 
 export default {

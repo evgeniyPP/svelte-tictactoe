@@ -7,12 +7,12 @@ import replace from '@rollup/plugin-replace';
 
 const production = !process.env.ROLLUP_WATCH;
 const apiUrl = production
-    ? 'https://epp-tictactoe.herokuapp.com/'
-    : 'http://localhost:4001/';
+    ? 'https://epp-tictactoe.herokuapp.com'
+    : 'http://localhost:4001';
 
 const wsUrl = production
     ? 'wss://epp-tictactoe.herokuapp.com/ws'
-    : 'ws://localhost:2222/';
+    : 'ws://localhost:2222';
 
 export default {
     input: 'src/main.js',
